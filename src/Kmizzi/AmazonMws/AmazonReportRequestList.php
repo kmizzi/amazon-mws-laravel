@@ -413,7 +413,7 @@ class AmazonReportRequestList extends AmazonReportsCore implements \Iterator
             $this->reportList[$i]['ReportProcessingStatus'] = (string)$x->ReportProcessingStatus;
             $this->reportList[$i]['GeneratedReportId'] = (string)$x->GeneratedReportId;
             $this->reportList[$i]['StartedProcessingDate'] = (string)$x->StartedProcessingDate;
-            $this->reportList[$i]['CompletedProcessingDate'] = (string)$x->CompletedProcessingDate;
+            $this->reportList[$i]['CompletedDate'] = (string)$x->CompletedDate;
 
             $this->index++;
         }
