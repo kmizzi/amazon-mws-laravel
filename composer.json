@@ -1,12 +1,12 @@
 {
-    "name": "kmizzi/laravel5-amazon-mws",
-    "description": "Use Amazon's MWS web services with Laravel 5.x. Based on peron/amazon-mws-laravel package and modified to make it compatible with latest Laravel releases (+ bugfixes).",
+    "name": "peron/laravel5-amazon-mws",
+    "description": "Use Amazon's MWS web services with Laravel 5.x. Based on creacoon/amazon-mws-laravel package and modified to make it compatible with latest Laravel releases (+ bugfixes).",
     "license": "Apache-2.0",
     "keywords": ["API", "Amazon", "PHP", "MWS", "Laravel"],
     "authors": [
         {
-            "name": "Kalvin Mizzi",
-            "email": "kalvin@mizzi.com"
+            "name": "Przemek Peron",
+            "email": "przemek@redkorn.pl"
         }
     ],
     "require": {
