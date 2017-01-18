@@ -496,7 +496,7 @@ abstract class AmazonCore
                     $loglevel = 'error';
                     break;
                 default:
-                    $loglevel = 'info';
+                    $loglevel = 'debug';
             }
             call_user_func(array('Log', $loglevel), $msg);
 
