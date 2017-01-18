@@ -106,7 +106,12 @@ abstract class AmazonProductsCore extends AmazonCore
                             $this->log("Product Error: $error", 'Warning');
                         } elseif ($z->getName() != 'Product') {
                             $this->productList[$z->getName()] = (string)$z;
-                            $this->log("Special case: " . $z->getName(), 'Debug');
+                            $ignore = [
+                                'AllOfferListingsConsidered'
+                            ];
+                            if (!in_array($z->getName(), $ignore)) {
+                                $this->log("Special case: " . $z->getName(), 'Debug');
+                            }
                         } else {
                             $this->productList[$this->index] = new AmazonProduct($this->storeName, $z, $this->mockMode,
                                 $this->mockFiles);
