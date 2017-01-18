@@ -297,6 +297,15 @@ class AmazonProduct extends AmazonProductsCore
     }
 
     /**
+     * Get ASIN for product or return null 
+     *
+     * @return null|string
+     */
+    public function getASIN()
+    {
+        return isset($this->getData['Identifiers']['MarketplaceASIN']['ASIN']) ? $this->getData['Identifiers']['MarketplaceASIN']['ASIN'] : null;
+    }
+    /**
      * See <i>getData</i>.
      * @return array Huge array of Product data.
      */
