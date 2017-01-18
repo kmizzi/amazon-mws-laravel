@@ -303,7 +303,7 @@ class AmazonProduct extends AmazonProductsCore
      */
     public function getASIN()
     {
-        return isset($this->getData['Identifiers']['MarketplaceASIN']['ASIN']) ? $this->getData['Identifiers']['MarketplaceASIN']['ASIN'] : null;
+        return isset($this->getData()['Identifiers']['MarketplaceASIN']['ASIN']) ? $this->getData()['Identifiers']['MarketplaceASIN']['ASIN'] : null;
     }
     /**
      * See <i>getData</i>.
