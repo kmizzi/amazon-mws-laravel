@@ -367,6 +367,21 @@ abstract class AmazonCore
         }
     }
 
+    /**
+     * Returns the XML portion of the response error. False if there is no error.
+     * 
+     * @param $r
+     * @return bool|\SimpleXMLElement[]
+     */
+    public function checkResponseError ($r) {
+        if ($r['code'] == 200) {
+            return false;
+        } else {
+            $xml = simplexml_load_string($r['body'])->Error;
+            return $xml;
+        }
+    }
+    
     // *
     //  * Set the config file.
     //  * 
