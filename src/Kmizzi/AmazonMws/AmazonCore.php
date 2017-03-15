@@ -1,5 +1,6 @@
 <?php namespace Kmizzi\AmazonMws;
 
+use Carbon\Carbon;
 use Config, Log;
 use DateTime;
 use Exception;
@@ -612,7 +613,7 @@ abstract class AmazonCore
      */
     protected function sendRequest($url, $param)
     {
-        $this->log("Making request to Amazon: " . $this->options['Action']);
+        // $this->log("Making request to Amazon: " . $this->options['Action']);
         $response = $this->fetchURL($url, $param);
 
         while ($response['code'] == '503' && $this->throttleStop == false) {
@@ -672,8 +673,9 @@ abstract class AmazonCore
     {
         flush();
         $s = ($this->throttleTime == 1) ? '' : 's';
-        $this->log("Request was throttled, Sleeping for " . $this->throttleTime . " second$s", 'Throttle');
+        // $this->log("Request was throttled, Sleeping for " . $this->throttleTime . " second$s", 'Throttle');
         sleep($this->throttleTime);
+        $this->throttleTime += 0.2;
     }
 
     /**
