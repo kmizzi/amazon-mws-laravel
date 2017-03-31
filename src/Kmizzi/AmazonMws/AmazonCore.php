@@ -370,7 +370,7 @@ abstract class AmazonCore
 
     /**
      * Returns the XML portion of the response error. False if there is no error.
-     * 
+     *
      * @param $r
      * @return bool|\SimpleXMLElement[]
      */
@@ -382,7 +382,7 @@ abstract class AmazonCore
             return $xml;
         }
     }
-    
+
     // *
     //  * Set the config file.
     //  * 
@@ -617,6 +617,10 @@ abstract class AmazonCore
         $response = $this->fetchURL($url, $param);
 
         while (empty($response['code']) || ($response['code'] == '503' && $this->throttleStop == false)) {
+            if (class_exists('Event') && class_exists('App\Events\AmazonThrottled')) {
+                \Event(new \App\Events\AmazonThrottled($response));
+            }
+
             $this->sleep();
             $response = $this->fetchURL($url, $param);
         }
